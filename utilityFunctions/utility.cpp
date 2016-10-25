@@ -116,7 +116,26 @@ int main()
         }
     }
     *************************************************************************************/
-
+	
+	
+	/******************************************************************************************************************
+	// This function counts the number of total objects in the array. If the array is full then then false is returned.
+	
+	bool isNotFull() {
+		int count = 0;
+		for(int i = 0; i < yMax; i++){
+			for (int j = 0; j < xMax; j++){
+				if (gridArray[i][j] != NULL)
+					count += 1;
+				}
+		}
+    if (count == yMax * xMax)
+        return false;
+    if (count < yMax * xMax)
+        return true;
+    
+	}
+	*************************************************************************************************************************/
 
     return 0;
 }
