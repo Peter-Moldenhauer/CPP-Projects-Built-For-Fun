@@ -2,7 +2,8 @@
 ** Name: Peter Moldenhauer
 ** Date: 11/22/16
 ** Description: This program demonstrates the use of the vector container in the Standard Template
-** Library (STL). The STL library is made up of containers, iterators and algorithms.
+** Library (STL). The STL library is made up of containers, iterators and algorithms. A vector is a 
+** sequence container. 
 ******************************************************************************************************/
 
 #include <iostream>
@@ -14,10 +15,13 @@ using namespace std;  // Everything using the STL library uses namespace std
 int main()
 {
     // CONTAINER
-    vector<int> vec;
+    vector<int> vec;  // vec.size() == 0
     vec.push_back(4);
     vec.push_back(1);
-    vec.push_back(8);  // vec: (4, 1, 8)
+    vec.push_back(8);  // vec: (4, 1, 8)     vec.size() == 3
+	
+	cout << vec[2];  // prints 8, (no range check)
+	cout << vec.at(2); // prints 8, (throw range_error exception of out of range)
 
     // ITERATOR
     vector<int>::iterator itr1 = vec.begin();  // half-open: (begin, end)
@@ -33,5 +37,8 @@ int main()
     for (vector<int>::iterator itr = itr1; itr!=itr2; ++itr)
         cout << *itr << " ";  // Print out: 1 4 8
 
+	int* p = &vec[0];  // vector is a dynamically allocated contiguous array in mem so we can use a pointer to it similar to arrays
+	p[2] = 6; // example of using a pointer to change vector element 
+	
     return 0;
 }
